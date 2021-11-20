@@ -1,7 +1,7 @@
 ---
-title:
+title: ${Title}
 author: Jonghyeok Lee
 date: ${YEAR}-${MONTH}-${DAY}
-category: Jekyll
+category: ${Category}
 layout: post
 ---
