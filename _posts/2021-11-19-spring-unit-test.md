@@ -2,7 +2,7 @@
 title: Java Unit Test
 author: Jonghyeok Lee
 date: 2021-11-19
-category: Java
+category: Spring
 layout: post
 ---
 

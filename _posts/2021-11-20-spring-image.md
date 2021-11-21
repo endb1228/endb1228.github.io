@@ -2,7 +2,7 @@
 title: Spring Image
 author: Jonghyeok Lee
 date: 2021-11-20
-category: Java
+category: Spring
 layout: post
 ---
 
