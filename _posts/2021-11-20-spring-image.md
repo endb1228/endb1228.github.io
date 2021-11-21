@@ -21,7 +21,7 @@ Spring MVC를 이용하여 이미지/미디어 전송.
     }
     ``` 
     다음과 같은 URL로 요청을 보낼 수 있음.
-    ```javascript
+    ```
     http://localhost:8080/spring-mvc-xml/image-manual-response.jpg
     ```
 
@@ -37,9 +37,52 @@ Spring MVC를 이용하여 이미지/미디어 전송.
     
     Controller 메소드에 @ResponseBody annotation을 적용하고, 메소드의 리턴 타입에 따라 적절한 message converter를 선택.
 
+    ```java
+    @RequestMapping(value = "/image-byte-array", method = RequestMethod.GET)
+        public @ResponseBody byte[] getImageAsByteArray() throws IOException {
+        InputStream in = servletContext.getResourceAsStream("/WEB-INF/images/image-example.jpg");
+        return IOUtils.toByteArray(in);
+    }
+    ```
+    다음과 같은 URL로 요청을 보낼 수 있음.
+    ```
+    http://localhost:8080/spring-mvc-xml/image-manual-response.jpg
+    ```
+    
+    Method 안에서 response 객체에 대해 처리할 필요가 없음.
+    Data source에서 image를 탐색하는 로직을 구현해야 하며, header나 status code를 추가할 수 없음.    
 
 
+3.  ResponseEntity
+    ResponseEntity<Byte[]>타입으로 데이터 전송.
+    ResponseEntity는 body 및 header, status code를 control할 수 있도록 구현이 되어 있음.
+    ```java
+    @RequestMapping(value = "/image-response-entity", method = RequestMethod.GET)
+        public ResponseEntity<byte[]> getImageAsResponseEntity() {
+        HttpHeaders headers = new HttpHeaders();
+        InputStream in = servletContext.getResourceAsStream("/WEB-INF/images/image-example.jpg");
+        byte[] media = IOUtils.toByteArray(in);
+        headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+        
+        ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
+        return responseEntity;
+    }
+    ```
+    적절한 예외 처리와 그에 대한 적절한 response만 구현해주면 됨.
 
+4.  ResponseEntity + Resource
+    Resource는 low-level resource에 대한 인터페이스로, 다양한 타입의 resource(local files, remote files, classpath resources)에 대해 쉽게 접근할 수 있도록 해줌.
+    ```java
+    @RequestMapping(value = "/image-resource", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<Resource> getImageAsResource() {
+        HttpHeaders headers = new HttpHeaders();
+        Resource resource =
+        new ServletContextResource(servletContext, "/WEB-INF/images/image-example.jpg");
+        return new ResponseEntity<>(resource, headers, HttpStatus.OK);
+    }
+    ```
+    
 
 
 
