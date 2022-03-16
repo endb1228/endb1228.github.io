@@ -1,10 +1,19 @@
 ---
-title: Authority
+title: Authentication-and Authorization
 author: Jonghyeok Lee
 date: 2021-12-15
 category: Spring
 layout: post
 ---
+
+Login 인증에 대한 Spring security의 flow
+
+1. 사용자가 인증 요청
+2. 사용자의 id, password, role 등을 기반으로 authentication token 발행 및 사용자에게 전달
+3. 이후 사용자로부터 인가가 필요한 요청이 들어왔을 때 요청에 포함되어 있는 token을 authenticationManager에 전달
+4. authenticationManager의 구현체인 providerManager에서 다시 
+
+https://kobumddaring.tistory.com/60?category=976215
 
 
 
