@@ -1,5 +1,5 @@
 ---
-title: Java Unit Test
+title: Spring Unit Test
 author: Jonghyeok Lee
 date: 2021-11-19
 category: Spring
