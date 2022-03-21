@@ -7,9 +7,9 @@ layout: post
 ---
 
 ## Cascading Style Sheets (CSS)
-[Wikipedia][1]
+[Wikipedia][1]  
+
 Javascript를 이용한 프론트엔드 개발에서 스타일을 넣기 위해 빠질 수 없는 요소
-기본적으로 CSS에 관한 내용을 정리할 것이지만, SCSS를 추가하여 좀 더 편하게 정리할 수 있도록 하겠음
 
 ### 1. Selector
 셀렉터는 어떤 element들에 스타일을 적용시킬 것인지를 결졍함
