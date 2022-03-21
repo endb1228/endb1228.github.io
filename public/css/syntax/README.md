@@ -1,3 +1,7 @@
+---
+published: false
+---
+
 # pygments-css
 
 
