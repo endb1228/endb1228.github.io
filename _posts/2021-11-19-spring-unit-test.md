@@ -66,10 +66,18 @@ class GymServiceTest {
 class에 @AutoConfigureMockMvc annotation을 붙여주고 class 안에서 @Autowired annotation이 붙은 MockMvc 인스터스를 만들어줌.
 MockServletRequestBuilder 타입의 builder를 통해 method와 content를 정의하고, mockMvc.perform으로 작업 수행.
 
-[//]: # (TODO: MockMvc, Mockito, BDDMockito)
-[//]: # (TODO: hibernate h2)
+[//]: # (
+TODO: MockMvc, Mockito, BDDMockito
+)
+[//]: # (
+TODO: hibernate h2
+)
 
 
 [1]: https://spring.io/guides/gs/testing-web/
 
 [2]: https://docs.spring.io/spring-framework/docs/current/reference/html/testing.html
+
+[//]: # (
+TODO: https://mangkyu.tistory.com/145 참고해서 다시 작성
+)
